@@ -9,23 +9,27 @@
 /* Begin PBXBuildFile section */
 		04C5CC8B24DD5FFB0071CF42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5CC8A24DD5FFB0071CF42 /* AppDelegate.swift */; };
 		04C5CC8D24DD5FFB0071CF42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5CC8C24DD5FFB0071CF42 /* SceneDelegate.swift */; };
-		04C5CC8F24DD5FFB0071CF42 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5CC8E24DD5FFB0071CF42 /* FirstViewController.swift */; };
-		04C5CC9124DD5FFB0071CF42 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5CC9024DD5FFB0071CF42 /* SecondViewController.swift */; };
 		04C5CC9424DD5FFB0071CF42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C5CC9224DD5FFB0071CF42 /* Main.storyboard */; };
 		04C5CC9624DD5FFD0071CF42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5CC9524DD5FFD0071CF42 /* Assets.xcassets */; };
 		04C5CC9924DD5FFD0071CF42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C5CC9724DD5FFD0071CF42 /* LaunchScreen.storyboard */; };
+		04C5CCA424DD6A180071CF42 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5CCA324DD6A180071CF42 /* HomeViewController.swift */; };
+		04C5CCA624DD6D370071CF42 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5CCA524DD6D370071CF42 /* SearchViewController.swift */; };
+		04C5CCA824DD6D530071CF42 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5CCA724DD6D530071CF42 /* AccountViewController.swift */; };
+		04C5CCAA24DD6D6F0071CF42 /* PromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5CCA924DD6D6F0071CF42 /* PromotionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		04C5CC8724DD5FFB0071CF42 /* GetirReplika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetirReplika.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C5CC8A24DD5FFB0071CF42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C5CC8C24DD5FFB0071CF42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		04C5CC8E24DD5FFB0071CF42 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		04C5CC9024DD5FFB0071CF42 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		04C5CC9324DD5FFB0071CF42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04C5CC9524DD5FFD0071CF42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04C5CC9824DD5FFD0071CF42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04C5CC9A24DD5FFD0071CF42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04C5CCA324DD6A180071CF42 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		04C5CCA524DD6D370071CF42 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		04C5CCA724DD6D530071CF42 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		04C5CCA924DD6D6F0071CF42 /* PromotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +64,40 @@
 			children = (
 				04C5CC8A24DD5FFB0071CF42 /* AppDelegate.swift */,
 				04C5CC8C24DD5FFB0071CF42 /* SceneDelegate.swift */,
-				04C5CC8E24DD5FFB0071CF42 /* FirstViewController.swift */,
-				04C5CC9024DD5FFB0071CF42 /* SecondViewController.swift */,
-				04C5CC9224DD5FFB0071CF42 /* Main.storyboard */,
 				04C5CC9524DD5FFD0071CF42 /* Assets.xcassets */,
-				04C5CC9724DD5FFD0071CF42 /* LaunchScreen.storyboard */,
+				04C5CCA024DD698F0071CF42 /* Model */,
+				04C5CCA124DD699C0071CF42 /* ViewController */,
+				04C5CCA224DD69AE0071CF42 /* View */,
 				04C5CC9A24DD5FFD0071CF42 /* Info.plist */,
 			);
 			path = GetirReplika;
+			sourceTree = "<group>";
+		};
+		04C5CCA024DD698F0071CF42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04C5CCA124DD699C0071CF42 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04C5CCA324DD6A180071CF42 /* HomeViewController.swift */,
+				04C5CCA524DD6D370071CF42 /* SearchViewController.swift */,
+				04C5CCA724DD6D530071CF42 /* AccountViewController.swift */,
+				04C5CCA924DD6D6F0071CF42 /* PromotionViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		04C5CCA224DD69AE0071CF42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04C5CC9224DD5FFB0071CF42 /* Main.storyboard */,
+				04C5CC9724DD5FFD0071CF42 /* LaunchScreen.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,10 +171,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04C5CC9124DD5FFB0071CF42 /* SecondViewController.swift in Sources */,
-				04C5CC8F24DD5FFB0071CF42 /* FirstViewController.swift in Sources */,
 				04C5CC8B24DD5FFB0071CF42 /* AppDelegate.swift in Sources */,
+				04C5CCA824DD6D530071CF42 /* AccountViewController.swift in Sources */,
 				04C5CC8D24DD5FFB0071CF42 /* SceneDelegate.swift in Sources */,
+				04C5CCA624DD6D370071CF42 /* SearchViewController.swift in Sources */,
+				04C5CCAA24DD6D6F0071CF42 /* PromotionViewController.swift in Sources */,
+				04C5CCA424DD6A180071CF42 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
