@@ -3,21 +3,44 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cocon-RegularTR.ttf">
+            <string>Cocon-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Database Uploader View Controller-->
+        <scene sceneID="cOx-WX-nHD">
+            <objects>
+                <viewController id="8pg-OI-X11" customClass="DatabaseUploaderViewController" customModule="GetirReplika" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="11f-LY-dJ9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="8qL-VF-XCJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fjZ-vV-ycG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-418" y="-1297"/>
+        </scene>
+        <!--Tab View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="TabViewController" customModule="GetirReplika" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" name="getirPurple"/>
                     </tabBar>
                     <connections>
+                        <outlet property="homeTabBar" destination="W28-zg-YXA" id="28R-d8-Cb8"/>
                         <segue destination="n9r-ck-73T" kind="relationship" relationship="viewControllers" id="wgt-29-vKw"/>
                         <segue destination="AMf-VH-3qS" kind="relationship" relationship="viewControllers" id="Fua-ls-ERR"/>
                         <segue destination="ta8-AU-h10" kind="relationship" relationship="viewControllers" id="bCW-4i-KFE"/>
@@ -28,14 +51,20 @@
             </objects>
             <point key="canvasLocation" x="801" y="-1329"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="i39-4I-zDP">
             <objects>
                 <navigationController id="n9r-ck-73T" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="XPU-tv-shr"/>
+                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" selectedImage="house.fill" id="XPU-tv-shr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Opn-BA-cyU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="barTintColor" name="getirPurple"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Cocon-Regular" family="Cocon-Regular" pointSize="17"/>
+                            <color key="textColor" name="getirYellow"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="375-SL-FQc" kind="relationship" relationship="rootViewController" id="u8S-5L-038"/>
@@ -45,62 +74,235 @@
             </objects>
             <point key="canvasLocation" x="-362" y="-528"/>
         </scene>
-        <!--Home View Controller-->
+        <!--getir-->
         <scene sceneID="ilM-mS-pCb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uFn-Zz-rdh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="375-SL-FQc" customClass="HomeViewController" customModule="GetirReplika" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WYu-i8-hYg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSy-qc-S9m">
-                                <rect key="frame" x="184" y="428" width="46" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="8VZ-g3-yYA"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="TLb-Ql-5m4" kind="show" id="UvV-L7-zxz"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hr5-i5-5WW">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nfU-IJ-JYq">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MZ6-AD-CE8">
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="60"/>
+                                                <color key="backgroundColor" name="getirYellow"/>
+                                            </tableView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="O9X-ft-zDK">
+                                                <rect key="frame" x="314" y="0.0" width="100" height="60"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="TVS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3x-mX-Pnk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                                        <color key="backgroundColor" name="getirYellow"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="MDs-mc-EiS"/>
+                                                            <constraint firstAttribute="height" constant="30" id="sYA-Qa-cKF"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4dk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dG9-c9-4N8">
+                                                        <rect key="frame" x="0.0" y="30" width="100" height="30"/>
+                                                        <color key="backgroundColor" name="getirYellow"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="Px1-za-FTf"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Z8Y-zv-QXq"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="J98-1d-9gX">
+                                        <rect key="frame" x="0.0" y="60" width="414" height="250"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="A2Y-bd-HOm"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="PRI-X2-hRb">
+                                            <size key="itemSize" width="414" height="250"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                    </collectionView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="S8i-aS-G4B">
+                                        <rect key="frame" x="0.0" y="310" width="414" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEG-Lq-UWa" customClass="MainPageGetirButtons" customModule="GetirReplika" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="14" width="52.5" height="32"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Cocon-Regular" family="Cocon-Regular" pointSize="17"/>
+                                                <state key="normal" title="getir"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8e-Va-Ehz" customClass="MainPageGetirButtons" customModule="GetirReplika" customModuleProvider="target">
+                                                <rect key="frame" x="73.5" y="14" width="130" height="32"/>
+                                                <fontDescription key="fontDescription" name="Cocon-Regular" family="Cocon-Regular" pointSize="17"/>
+                                                <state key="normal" title="getiryemek"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBk-Vz-BLg" customClass="MainPageGetirButtons" customModule="GetirReplika" customModuleProvider="target">
+                                                <rect key="frame" x="209.5" y="14" width="123.5" height="32"/>
+                                                <fontDescription key="fontDescription" name="Cocon-Regular" family="Cocon-Regular" pointSize="17"/>
+                                                <state key="normal" title="getirbüyük"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7VN-Q5-F0a" customClass="MainPageGetirButtons" customModule="GetirReplika" customModuleProvider="target">
+                                                <rect key="frame" x="339" y="14" width="60" height="32"/>
+                                                <fontDescription key="fontDescription" name="Cocon-Regular" family="Cocon-Regular" pointSize="17"/>
+                                                <state key="normal" title="getirsu"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" name="getirPurple"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="1Uu-fI-0ZZ"/>
+                                        </constraints>
+                                        <edgeInsets key="layoutMargins" top="8" left="15" bottom="8" right="15"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7LW-Cl-mkl">
+                                        <rect key="frame" x="0.0" y="370" width="414" height="355"/>
+                                        <subviews>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XhO-zz-qUd">
+                                                <rect key="frame" x="15" y="8" width="384" height="339"/>
+                                                <color key="backgroundColor" white="0.97999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sgv-x4-pEF">
+                                                    <size key="itemSize" width="80" height="100"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ssd-hZ-gmO" customClass="ProductCategoryCollectionViewCell" customModule="GetirReplika" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SB9-Ho-YGu">
+                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </collectionViewCellContentView>
+                                                        <color key="backgroundColor" name="getirYellow"/>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="8" left="15" bottom="8" right="15"/>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.97999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="VSy-qc-S9m" firstAttribute="centerX" secondItem="WYu-i8-hYg" secondAttribute="centerX" id="QSB-MW-QxY"/>
-                            <constraint firstItem="VSy-qc-S9m" firstAttribute="centerY" secondItem="WYu-i8-hYg" secondAttribute="centerY" id="h7Z-kx-WGn"/>
+                            <constraint firstItem="JRH-0k-jB0" firstAttribute="bottom" secondItem="hr5-i5-5WW" secondAttribute="bottom" id="1dH-Az-QLO"/>
+                            <constraint firstItem="hr5-i5-5WW" firstAttribute="top" secondItem="JRH-0k-jB0" secondAttribute="top" id="Ant-sI-TkV"/>
+                            <constraint firstItem="JRH-0k-jB0" firstAttribute="trailing" secondItem="hr5-i5-5WW" secondAttribute="trailing" id="Np4-pX-Dbc"/>
+                            <constraint firstItem="hr5-i5-5WW" firstAttribute="leading" secondItem="JRH-0k-jB0" secondAttribute="leading" id="OLn-F8-qVp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JRH-0k-jB0"/>
                     </view>
-                    <navigationItem key="navigationItem" id="TzQ-Cd-MUn"/>
+                    <navigationItem key="navigationItem" title="getir" id="TzQ-Cd-MUn"/>
+                    <connections>
+                        <outlet property="addressTableView" destination="MZ6-AD-CE8" id="Yf1-ah-FZL"/>
+                        <outlet property="deliveryTimeLabel" destination="dG9-c9-4N8" id="ddA-Th-j6a"/>
+                        <outlet property="estimationTimeLabel" destination="Z3x-mX-Pnk" id="bV2-6A-gii"/>
+                        <outlet property="getirButton" destination="mEG-Lq-UWa" id="yQj-bu-hyx"/>
+                        <outlet property="getirButtonsStackView" destination="S8i-aS-G4B" id="bHQ-Gb-mdG"/>
+                        <outlet property="getirBuyukButton" destination="GBk-Vz-BLg" id="d3t-d4-gcl"/>
+                        <outlet property="getirSuButton" destination="7VN-Q5-F0a" id="eHS-FF-VVz"/>
+                        <outlet property="getirYemekButton" destination="c8e-Va-Ehz" id="v5R-sV-DTZ"/>
+                        <outlet property="productCollectionView" destination="XhO-zz-qUd" id="ibZ-A2-7Nf"/>
+                        <outlet property="promotionCollectionView" destination="J98-1d-9gX" id="JQP-sK-X4Q"/>
+                        <segue destination="TLb-Ql-5m4" kind="show" identifier="productCategoryViewSegue" id="HxM-kA-ggV"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uFn-Zz-rdh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-362" y="161"/>
+            <point key="canvasLocation" x="-362.31884057971018" y="160.71428571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--ürünler-->
         <scene sceneID="8WI-Qr-eAR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I4c-QK-JB8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="TLb-Ql-5m4" sceneMemberID="viewController">
+                <viewController id="TLb-Ql-5m4" customClass="ProductCategoryViewController" customModule="GetirReplika" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aWB-Ff-CKZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ica-Vu-qWF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRB-Ue-67n" userLabel="Menu Bar Collection View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Q5d-Uw-8Hc"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="aBo-x6-a9a">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                    </collectionView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mHj-d1-4kE" userLabel="Products Collection View">
+                                        <rect key="frame" x="0.0" y="58" width="414" height="667"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YUX-4a-x19">
+                                            <size key="itemSize" width="120" height="250"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Srl-J6-cgG">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="250"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hzK-VH-Chs">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="250"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                                <color key="backgroundColor" name="getirYellow"/>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ica-Vu-qWF" firstAttribute="trailing" secondItem="qNK-Ro-M8g" secondAttribute="trailing" id="5jF-OT-wBm"/>
+                            <constraint firstItem="ica-Vu-qWF" firstAttribute="bottom" secondItem="qNK-Ro-M8g" secondAttribute="bottom" id="jIR-9f-kGr"/>
+                            <constraint firstItem="ica-Vu-qWF" firstAttribute="top" secondItem="qNK-Ro-M8g" secondAttribute="top" id="oca-aa-LIH"/>
+                            <constraint firstItem="ica-Vu-qWF" firstAttribute="leading" secondItem="qNK-Ro-M8g" secondAttribute="leading" id="ylu-Y8-Vx9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qNK-Ro-M8g"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hUp-eh-fjo"/>
+                    <navigationItem key="navigationItem" title="ürünler" id="hUp-eh-fjo"/>
+                    <connections>
+                        <outlet property="menuBarCollectionView" destination="mRB-Ue-67n" id="pF7-lO-aQQ"/>
+                        <outlet property="productItemsCollectionView" destination="mHj-d1-4kE" id="8th-LW-IZl"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I4c-QK-JB8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-362" y="891"/>
+            <point key="canvasLocation" x="-362.31884057971018" y="890.625"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="m4g-Lf-jZn">
             <objects>
                 <navigationController id="AMf-VH-3qS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Yi5-Z0-Cwv"/>
+                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="Yi5-Z0-Cwv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fQ9-cg-1Oa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="barTintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="Nkd-HY-WVx" kind="relationship" relationship="rootViewController" id="LJ1-jz-U8M"/>
@@ -110,10 +312,9 @@
             </objects>
             <point key="canvasLocation" x="420" y="-528"/>
         </scene>
-        <!--Search View Controller-->
+        <!--getir-->
         <scene sceneID="LGN-fE-gyV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="frE-TH-Wv4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Nkd-HY-WVx" customClass="SearchViewController" customModule="GetirReplika" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hyg-t0-aEj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -137,15 +338,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iv5-G8-H0C"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bN9-Aa-sXR"/>
+                    <navigationItem key="navigationItem" title="getir" id="bN9-Aa-sXR"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="frE-TH-Wv4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="420" y="161"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="7VN-L3-wh3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U71-Mf-peg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="E51-5Q-vjd" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hXU-2c-6k1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -155,17 +356,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="zgK-Gc-jj4"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U71-Mf-peg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="420" y="891"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="P92-Iq-LOq">
             <objects>
                 <navigationController id="ta8-AU-h10" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="iai-hg-Dnx"/>
+                    <tabBarItem key="tabBarItem" title="" image="person.fill" catalog="system" selectedImage="person.fill" id="iai-hg-Dnx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W3L-ab-fYh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="barTintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="48d-3u-cPg" kind="relationship" relationship="rootViewController" id="Hgk-5X-HFP"/>
@@ -175,10 +379,9 @@
             </objects>
             <point key="canvasLocation" x="1233" y="-528"/>
         </scene>
-        <!--Account View Controller-->
+        <!--getir-->
         <scene sceneID="8r1-dO-Eay">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ojw-gG-wLB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="48d-3u-cPg" customClass="AccountViewController" customModule="GetirReplika" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hgq-nA-I6g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -202,15 +405,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MN2-KM-Gjq"/>
                     </view>
-                    <navigationItem key="navigationItem" id="QKR-BT-SFf"/>
+                    <navigationItem key="navigationItem" title="getir" id="QKR-BT-SFf"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ojw-gG-wLB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1233" y="161"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="WPJ-Mu-Xbh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="onU-86-94f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="jyi-7a-Sg4" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jpU-Ly-G54">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -220,17 +423,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ctk-I0-A4H"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="onU-86-94f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1233" y="891"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="FA8-Uu-s9c">
             <objects>
                 <navigationController id="bVo-xX-0EE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="5py-4D-f7f"/>
+                    <tabBarItem key="tabBarItem" title="" image="gift.fill" catalog="system" selectedImage="gift.fill" id="5py-4D-f7f"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0wX-gV-AcO">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="barTintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="8d5-Fx-pUX" kind="relationship" relationship="rootViewController" id="dKB-BE-2h6"/>
@@ -240,10 +446,9 @@
             </objects>
             <point key="canvasLocation" x="2033" y="-528"/>
         </scene>
-        <!--Promotion View Controller-->
+        <!--getir-->
         <scene sceneID="Fpi-ci-bdo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yhl-eh-8Zj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="8d5-Fx-pUX" customClass="PromotionViewController" customModule="GetirReplika" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8UR-WI-2OT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -267,15 +472,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6FJ-bC-qWx"/>
                     </view>
-                    <navigationItem key="navigationItem" id="iUS-wP-Q1K"/>
+                    <navigationItem key="navigationItem" title="getir" id="iUS-wP-Q1K"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yhl-eh-8Zj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2033" y="161"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="HO4-Vv-aaQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8N9-tB-Ekb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="2N6-Oz-8V9" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="98Q-sd-6ZI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -285,8 +490,22 @@
                     </view>
                     <navigationItem key="navigationItem" id="1jr-8K-ZiD"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8N9-tB-Ekb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2033" y="891"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gift.fill" catalog="system" width="128" height="128"/>
+        <image name="house" catalog="system" width="128" height="110"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <namedColor name="getirPurple">
+            <color red="0.36100000143051147" green="0.23499999940395355" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="getirYellow">
+            <color red="0.99599999189376831" green="0.82400000095367432" blue="0.0" alpha="0.9869999885559082" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

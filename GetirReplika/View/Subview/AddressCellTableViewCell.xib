@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleAspectFit" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AddressReusableCell" id="KGk-i7-Jjw" customClass="AddressCellTableViewCell" customModule="GetirReplika" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="475" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="444" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lVt-JI-NA2">
+                        <rect key="frame" x="0.0" y="0.0" width="444" height="60"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTL-eR-cYV">
+                                <rect key="frame" x="0.0" y="0.0" width="444" height="60"/>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="nTL-eR-cYV" secondAttribute="bottom" id="80l-SG-6aX"/>
+                            <constraint firstItem="nTL-eR-cYV" firstAttribute="top" secondItem="lVt-JI-NA2" secondAttribute="top" id="RZa-2x-IpX"/>
+                            <constraint firstAttribute="trailing" secondItem="nTL-eR-cYV" secondAttribute="trailing" id="g0w-r2-Glt"/>
+                            <constraint firstItem="nTL-eR-cYV" firstAttribute="leading" secondItem="lVt-JI-NA2" secondAttribute="leading" id="vDa-13-1GA"/>
+                        </constraints>
+                    </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5cv-rD-bse">
+                        <rect key="frame" x="10" y="10" width="434" height="40"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jW6-tL-87r">
+                                <rect key="frame" x="0.0" y="2" width="35" height="34.5"/>
+                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="e25-ds-Oo7"/>
+                                    <constraint firstAttribute="height" constant="35" id="eLt-yG-MIH"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text=" | " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5TY-QP-Djc">
+                                <rect key="frame" x="40" y="10" width="21.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ev" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzb-Q9-jhI">
+                                <rect key="frame" x="66.5" y="10" width="20" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Bostan Sok., No:44A No:6 asdasdasdadsasd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcV-QA-K05">
+                                <rect key="frame" x="91.5" y="10" width="342.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="lVt-JI-NA2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0AX-va-Od7"/>
+                    <constraint firstItem="5cv-rD-bse" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="F0o-8j-EV4"/>
+                    <constraint firstAttribute="bottom" secondItem="lVt-JI-NA2" secondAttribute="bottom" id="PnN-NO-hPm"/>
+                    <constraint firstAttribute="trailing" secondItem="5cv-rD-bse" secondAttribute="trailing" id="Q7b-2U-acf"/>
+                    <constraint firstItem="5cv-rD-bse" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="TOX-ph-LF2"/>
+                    <constraint firstAttribute="bottom" secondItem="5cv-rD-bse" secondAttribute="bottom" constant="10" id="aSl-m5-UOQ"/>
+                    <constraint firstAttribute="trailing" secondItem="lVt-JI-NA2" secondAttribute="trailing" id="vPL-WD-tUo"/>
+                    <constraint firstItem="lVt-JI-NA2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vVr-EE-q0y"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="button" destination="nTL-eR-cYV" id="aOy-JK-4kc"/>
+                <outlet property="buttonView" destination="lVt-JI-NA2" id="IRZ-Lt-ECv"/>
+            </connections>
+            <point key="canvasLocation" x="225.36231884057972" y="110.49107142857143"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+    </resources>
+</document>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>881243768123-9b3j4r5pt83ckqamdfo1s323ou2g9r2c.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.881243768123-9b3j4r5pt83ckqamdfo1s323ou2g9r2c</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB_V5Sx9LP9eo0iNyTVEgLQ7oQw0t2P7uw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>881243768123</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.metilli.getirreplika</string>
+	<key>PROJECT_ID</key>
+	<string>getirreplika</string>
+	<key>STORAGE_BUCKET</key>
+	<string>getirreplika.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:881243768123:ios:379eaf3ffedd94467da31e</string>
+	<key>DATABASE_URL</key>
+	<string>https://getirreplika.firebaseio.com</string>
+</dict>
+</plist>

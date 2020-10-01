@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MenuItemViewCell" customModule="GetirReplika" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="96"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="96"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ac9-xM-lCb">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="96"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Denemeasdasdasdasdasdasdasd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mf6-RQ-RYh">
+                                <rect key="frame" x="-38.5" y="38" width="257" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7BE-pa-MFl">
+                                <rect key="frame" x="0.0" y="91" width="180" height="5"/>
+                                <color key="backgroundColor" name="getirYellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="4Ph-dl-N8q"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="getirPurple"/>
+                        <constraints>
+                            <constraint firstItem="7BE-pa-MFl" firstAttribute="leading" secondItem="ac9-xM-lCb" secondAttribute="leading" id="Dwa-Zk-nvv"/>
+                            <constraint firstItem="Mf6-RQ-RYh" firstAttribute="centerX" secondItem="ac9-xM-lCb" secondAttribute="centerX" id="GOh-iH-Axr"/>
+                            <constraint firstItem="Mf6-RQ-RYh" firstAttribute="centerY" secondItem="ac9-xM-lCb" secondAttribute="centerY" id="IuX-pq-J2o"/>
+                            <constraint firstAttribute="trailing" secondItem="7BE-pa-MFl" secondAttribute="trailing" id="S7v-lR-KM2"/>
+                            <constraint firstAttribute="bottom" secondItem="7BE-pa-MFl" secondAttribute="bottom" id="lXc-nI-HmD"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="ac9-xM-lCb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="CKG-Qa-7vq"/>
+                <constraint firstItem="ac9-xM-lCb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="GyA-WG-T5w"/>
+                <constraint firstAttribute="trailing" secondItem="ac9-xM-lCb" secondAttribute="trailing" id="JaB-q6-VOU"/>
+                <constraint firstAttribute="bottom" secondItem="ac9-xM-lCb" secondAttribute="bottom" id="TnZ-36-Jtk"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="400" height="185"/>
+            <connections>
+                <outlet property="indicatorView" destination="7BE-pa-MFl" id="DSY-RN-dQq"/>
+                <outlet property="label" destination="Mf6-RQ-RYh" id="767-s8-BMH"/>
+            </connections>
+            <point key="canvasLocation" x="385.50724637681162" y="145.98214285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="getirPurple">
+            <color red="0.36100000143051147" green="0.23499999940395355" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="getirYellow">
+            <color red="0.99599999189376831" green="0.82400000095367432" blue="0.0" alpha="0.9869999885559082" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
