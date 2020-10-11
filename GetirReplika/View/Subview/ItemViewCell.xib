@@ -28,12 +28,17 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2c-lP-HJZ" userLabel="PlusButton">
                                 <rect key="frame" x="90" y="10" width="20" height="20"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="hG3-0t-pll"/>
                                     <constraint firstAttribute="width" constant="20" id="lLi-XL-Zv1"/>
                                 </constraints>
-                                <state key="normal" title="+"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" name="getirPurple"/>
+                                </state>
+                                <connections>
+                                    <action selector="plusButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="bnX-pU-63Q"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpd-xi-scP" userLabel="PriceLabel">
                                 <rect key="frame" x="10" y="137" width="27" height="12"/>
@@ -53,17 +58,47 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOm-Di-WGr" userLabel="MinusButton">
+                                <rect key="frame" x="90" y="50" width="20" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="cCx-Ht-UwT"/>
+                                    <constraint firstAttribute="width" constant="20" id="i6A-cf-Fps"/>
+                                </constraints>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="-">
+                                    <color key="titleColor" name="getirPurple"/>
+                                </state>
+                                <connections>
+                                    <action selector="minusButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="zPg-vf-KFR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuv-n6-yEd" userLabel="CountLabel">
+                                <rect key="frame" x="90" y="30" width="20" height="20"/>
+                                <color key="backgroundColor" name="getirPurple"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="8kS-hG-GFr"/>
+                                    <constraint firstAttribute="height" constant="20" id="bSk-K8-ljf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="c2c-lP-HJZ" firstAttribute="top" secondItem="WWl-Zp-Dgg" secondAttribute="top" constant="10" id="3IN-zv-eqd"/>
+                            <constraint firstItem="wuv-n6-yEd" firstAttribute="top" secondItem="c2c-lP-HJZ" secondAttribute="bottom" id="5bj-hX-Sld"/>
                             <constraint firstItem="Phv-M4-cYM" firstAttribute="leading" secondItem="WWl-Zp-Dgg" secondAttribute="leading" constant="10" id="9I7-No-sYx"/>
+                            <constraint firstAttribute="trailing" secondItem="wuv-n6-yEd" secondAttribute="trailing" constant="10" id="Eee-ox-gv6"/>
                             <constraint firstItem="mpd-xi-scP" firstAttribute="leading" secondItem="WWl-Zp-Dgg" secondAttribute="leading" constant="10" id="V24-45-2H8"/>
                             <constraint firstItem="CRo-b8-y0h" firstAttribute="top" secondItem="Phv-M4-cYM" secondAttribute="bottom" constant="2" id="Wi9-yl-WXj"/>
                             <constraint firstItem="Phv-M4-cYM" firstAttribute="top" secondItem="mpd-xi-scP" secondAttribute="bottom" constant="4" id="YGa-y8-MvY"/>
+                            <constraint firstAttribute="trailing" secondItem="mOm-Di-WGr" secondAttribute="trailing" constant="10" id="YYh-lZ-dsT"/>
                             <constraint firstItem="xPo-0w-QUl" firstAttribute="leading" secondItem="WWl-Zp-Dgg" secondAttribute="leading" constant="5" id="aX4-vT-Bs6"/>
                             <constraint firstAttribute="trailing" secondItem="c2c-lP-HJZ" secondAttribute="trailing" constant="10" id="c8b-r2-jc0"/>
                             <constraint firstItem="xPo-0w-QUl" firstAttribute="top" secondItem="WWl-Zp-Dgg" secondAttribute="top" constant="10" id="g7C-iL-zpv"/>
+                            <constraint firstItem="mOm-Di-WGr" firstAttribute="top" secondItem="wuv-n6-yEd" secondAttribute="bottom" id="iew-fp-JHa"/>
                             <constraint firstItem="mpd-xi-scP" firstAttribute="top" secondItem="xPo-0w-QUl" secondAttribute="bottom" constant="2" id="jYQ-d0-hhv"/>
                             <constraint firstAttribute="trailing" secondItem="xPo-0w-QUl" secondAttribute="trailing" constant="10" id="mgM-sj-Avm"/>
                             <constraint firstItem="CRo-b8-y0h" firstAttribute="leading" secondItem="WWl-Zp-Dgg" secondAttribute="leading" constant="10" id="t0g-9y-Fox"/>
@@ -81,9 +116,11 @@
             <size key="customSize" width="131" height="136"/>
             <connections>
                 <outlet property="Image" destination="xPo-0w-QUl" id="Sy8-7p-NEI"/>
+                <outlet property="minusButton" destination="mOm-Di-WGr" id="Dkl-ll-wvr"/>
                 <outlet property="nameLabel" destination="Phv-M4-cYM" id="AAa-N3-6Wf"/>
                 <outlet property="plusButton" destination="c2c-lP-HJZ" id="Z6f-2T-F77"/>
                 <outlet property="priceLabel" destination="mpd-xi-scP" id="o6T-3Q-Wni"/>
+                <outlet property="productCountLabel" destination="wuv-n6-yEd" id="UMK-a5-bLJ"/>
                 <outlet property="unitLabel" destination="CRo-b8-y0h" id="CLv-3P-Xlw"/>
             </connections>
             <point key="canvasLocation" x="189.85507246376812" y="136.94196428571428"/>

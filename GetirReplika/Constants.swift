@@ -13,6 +13,12 @@ struct K {
     
     struct Segue {
         static let productSegue = "productCategoryViewSegue"
+        static let itemDetailViewSegue = "itemDetailsViewSeugue"
+    }
+    
+    struct Colors{
+        static let getirPurple = "getirPurple"
+        static let getirYellow = "getirYellow"
     }
     
     struct TableViewCell {

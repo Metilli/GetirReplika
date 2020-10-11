@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        ProductData.shared.loadItemsFromDatabase()
+        
         return true
     }
 

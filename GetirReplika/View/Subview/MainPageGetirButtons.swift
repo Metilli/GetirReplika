@@ -26,7 +26,7 @@ class MainPageGetirButtons: UIButton {
     func initButton(){
         layer.cornerRadius = frame.size.height / 4
         backgroundColor = UIColor.white
-        setTitleColor(UIColor(named: "getirPurple"), for: .normal)
+        setTitleColor(UIColor(named: K.Colors.getirPurple), for: .normal)
         
         addTarget(self, action: #selector(MainPageGetirButtons.buttonPressed), for: .touchUpInside)
     }
@@ -38,8 +38,8 @@ class MainPageGetirButtons: UIButton {
     func activateButton(bool: Bool){
         isOn = bool
         
-        let titleColor = bool ? UIColor(named: "getirYellow") : UIColor(named: "getirPurple")
-        let backgroundColor = bool ? UIColor(named: "getirPurple") : UIColor.white
+        let titleColor = bool ? UIColor(named: K.Colors.getirYellow) : UIColor(named: K.Colors.getirPurple)
+        let backgroundColor = bool ? UIColor(named: K.Colors.getirPurple) : UIColor.white
         
         self.backgroundColor = backgroundColor
         setTitleColor(titleColor, for: .normal)

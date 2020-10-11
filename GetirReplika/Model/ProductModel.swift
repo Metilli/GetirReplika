@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Product {
+class ProductModel {
     var ID: String
     var mainCategory: String
     var subCategory: String

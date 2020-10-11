@@ -15,17 +15,19 @@ class ProductCategoryViewController: UIViewController {
     @IBOutlet weak var menuBarCollectionView: UICollectionView!
     @IBOutlet weak var productItemsCollectionView: UICollectionView!
     
-    var allProducts:[Product] = []
-    var selectedCategoryProducts:[Product] = []
+    var shoppingCartLabel = UILabel()
+    var shoppingCartView = UIView()
+    
+    var allProducts:[ProductModel] = ProductData.shared.allProducts
+    var selectedCategoryProducts:[ProductModel] = []
     var subCategoriesUnique:[String] = []
-    var subcategoryProductsWithSection:[[Product]] = []
+    var subcategoryProductsWithSection:[[ProductModel]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ProductCategoryData.shared.delegate = self
-        
-        loadItemsFromDatabase()
+        ShoppingCartData.shared.delegate = self
         
         menuBarCollectionView.dataSource = self
         menuBarCollectionView.delegate = self
@@ -38,33 +40,12 @@ class ProductCategoryViewController: UIViewController {
         
         title = "Ürünler"
         
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-    }
-    
-    func loadItemsFromDatabase(){
-        let db = Firestore.firestore()
-        db.collection("products").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    let product = Product(ID: document.documentID as String,
-                                          mainCategory: document.data()["mainCategory"] as! String,
-                                          subCategory: document.data()["subCategory"] as! String,
-                                          name: document.data()["name"] as! String,
-                                          price: document.data()["price"] as! String,
-                                          priceDiscounted: document.data()["priceDiscounted"] as? String,
-                                          unit: document.data()["unit"] as! String,
-                                          description: document.data()["description"] as? String,
-                                          image1xURL: document.data()["image1xURL"] as? String,
-                                          image2xURL: document.data()["image2xURL"] as? String,
-                                          image3xURL: document.data()["image3xURL"] as? String,
-                                          imageName: document.data()["mainCategory"] as! String)
-                    self.allProducts.append(product)
-                }
-                self.loadProductCollectionView()
-            }
-        }
+        //navigationItem.backBarButtonItem?.title = ""
+        
+        //navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        setNavgationBarItems()
+        
+        loadProductCollectionView()
     }
     
     func loadProductCollectionView(){
@@ -80,7 +61,7 @@ class ProductCategoryViewController: UIViewController {
             subCategories.append(selectedProducts.subCategory)
         }
         subCategoriesUnique = []
-        subCategoriesUnique = Array(Set(subCategories))
+        subCategoriesUnique = Array(Set(subCategories)).sorted()
         subcategoryProductsWithSection = []
         for subcategory in subCategoriesUnique{
             subcategoryProductsWithSection.append(
@@ -90,6 +71,42 @@ class ProductCategoryViewController: UIViewController {
             )
         }
         productItemsCollectionView.reloadData()
+    }
+    
+    func setNavgationBarItems(){
+        let shoppingCartButton = UIButton.init(type: .custom)
+        shoppingCartButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        imageView.image = UIImage(systemName: "cart")
+        imageView.backgroundColor = UIColor.white
+        imageView.tintColor = UIColor(named: K.Colors.getirPurple)
+        
+        shoppingCartLabel = UILabel(frame: CGRect(x: 40, y: 0, width: 60, height: 30))
+        shoppingCartLabel.text = "0"
+        shoppingCartLabel.sizeThatFits(CGSize(width: 50, height: 30))
+        shoppingCartLabel.backgroundColor = UIColor.opaqueSeparator
+        shoppingCartLabel.textColor = UIColor.init(named: K.Colors.getirPurple)
+        shoppingCartLabel.textAlignment = .right
+        shoppingCartLabel.font = UIFont(name: "System", size: 12)
+        
+        shoppingCartView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
+        shoppingCartButton.frame = shoppingCartView.frame
+        shoppingCartView.backgroundColor = UIColor.opaqueSeparator
+        shoppingCartView.addSubview(shoppingCartButton)
+        shoppingCartView.addSubview(imageView)
+        shoppingCartView.addSubview(shoppingCartLabel)
+        shoppingCartView.layer.cornerRadius = 10
+        shoppingCartView.layer.borderWidth = 0
+        shoppingCartView.clipsToBounds = true
+        
+        let barButton = UIBarButtonItem.init(customView: shoppingCartView)
+        navigationItem.rightBarButtonItem = barButton
+        shoppingCartView.isHidden = true
+    }
+    
+    @objc func buttonPressed(){
+        print("Cart pressed")
     }
 }
 
@@ -121,10 +138,19 @@ extension ProductCategoryViewController: UICollectionViewDataSource {
         {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CollectionViewCell.productItemCellIdentifier, for: indexPath) as! ItemViewCell
             let url = URL(string: subcategoryProductsWithSection[indexPath.section][indexPath.row].image3xURL)
+            cell.id = subcategoryProductsWithSection[indexPath.section][indexPath.row].ID
             cell.image.kf.setImage(with: url!)
             cell.nameString = subcategoryProductsWithSection[indexPath.section][indexPath.row].name
             cell.priceString = subcategoryProductsWithSection[indexPath.section][indexPath.row].price
             cell.unitString = subcategoryProductsWithSection[indexPath.section][indexPath.row].unit
+            let shoppingCartItem = ShoppingCartData.shared.currentCart.first { (ShoppingCartModel) -> Bool in
+                return ShoppingCartModel.id == cell.id
+            }
+            if let safeShoppingCartItem = shoppingCartItem{
+                cell.productCount = safeShoppingCartItem.count
+            }else{
+                cell.productCount = 0
+            }
             return cell
         }
     }
@@ -172,8 +198,36 @@ extension ProductCategoryViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension ProductCategoryViewController: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == productItemsCollectionView{
+            let selectedCell = productItemsCollectionView.cellForItem(at: indexPath) as! ItemViewCell
+            print("Selected item is " + selectedCell.nameString)
+            ProductData.shared.selectedItemID = selectedCell.id
+            performSegue(withIdentifier: K.Segue.itemDetailViewSegue, sender: self)
+        }
+    }
+}
+
 extension ProductCategoryViewController: CategoryDelegate{
     func didCategoryChanged() {
         loadProductCollectionView()
     }
 }
+
+extension ProductCategoryViewController: ShoppingCartDataDelegate{
+    func didShoppingCartDataUpdated() {
+        var totalCost = 0.0
+        for item in ShoppingCartData.shared.currentCart{
+            totalCost += Double(item.price)! * Double(item.count)
+        }
+        shoppingCartLabel.text = "₺ "+String(format: "%.2f",totalCost)
+        if totalCost > 0 {
+            shoppingCartView.isHidden = false
+        }else{
+            shoppingCartView.isHidden = true
+        }
+        loadProductCollectionView()
+    }
+}
+

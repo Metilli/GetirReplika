@@ -10,26 +10,26 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductItemResuableCell" id="gTV-IL-0wX" customClass="ProductItemHeaderCell" customModule="GetirReplika" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="384" height="25"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="384" height="25"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WvU-TS-rOr">
-                        <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="384" height="25"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfE-bQ-5wn">
-                                <rect key="frame" x="171" y="14.5" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfE-bQ-5wn">
+                                <rect key="frame" x="10" y="2" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hfE-bQ-5wn" firstAttribute="centerY" secondItem="WvU-TS-rOr" secondAttribute="centerY" id="HMf-BS-n2A"/>
-                            <constraint firstItem="hfE-bQ-5wn" firstAttribute="centerX" secondItem="WvU-TS-rOr" secondAttribute="centerX" id="WdA-K2-1FF"/>
+                            <constraint firstItem="hfE-bQ-5wn" firstAttribute="leading" secondItem="WvU-TS-rOr" secondAttribute="leading" constant="10" id="yYc-Mt-BPU"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -41,11 +41,11 @@
                 <constraint firstItem="WvU-TS-rOr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="uHE-In-wLH"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="384" height="50"/>
+            <size key="customSize" width="384" height="25"/>
             <connections>
                 <outlet property="label" destination="hfE-bQ-5wn" id="g6K-d9-qBX"/>
             </connections>
-            <point key="canvasLocation" x="373.91304347826087" y="124.55357142857142"/>
+            <point key="canvasLocation" x="373.91304347826087" y="116.18303571428571"/>
         </collectionViewCell>
     </objects>
 </document>

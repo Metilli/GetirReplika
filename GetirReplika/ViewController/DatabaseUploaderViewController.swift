@@ -11,7 +11,7 @@ import Firebase
 
 class DatabaseUploaderViewController: UIViewController {
     
-    private var productArray: [Product] = []
+    private var productArray: [ProductModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,7 +73,7 @@ class DatabaseUploaderViewController: UIViewController {
         }
     }
     
-    func createFirestoreDocuments(product: Product){
+    func createFirestoreDocuments(product: ProductModel){
         let db = Firestore.firestore()
         let data: [String: Any] = [
             "ID": product.ID,
@@ -107,7 +107,7 @@ class DatabaseUploaderViewController: UIViewController {
             let lines = allText.split(separator: "\r\n")
             for line in lines {
                 ID += 1
-                let myProduct = Product(ID: "", mainCategory: "", subCategory: "", name: "", price: "", priceDiscounted: "", unit: "", description: "", image1xURL: "", image2xURL: "", image3xURL: "",imageName: "")
+                let myProduct = ProductModel(ID: "", mainCategory: "", subCategory: "", name: "", price: "", priceDiscounted: "", unit: "", description: "", image1xURL: "", image2xURL: "", image3xURL: "",imageName: "")
                 let columns = line.split(separator: ",").map(String.init)
                 myProduct.ID = String(ID)
                 myProduct.mainCategory = columns[0]
