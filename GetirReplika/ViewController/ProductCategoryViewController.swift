@@ -46,6 +46,8 @@ class ProductCategoryViewController: UIViewController {
         setNavgationBarItems()
         
         loadProductCollectionView()
+        
+        didShoppingCartDataUpdated()
     }
     
     func loadProductCollectionView(){
