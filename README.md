@@ -22,3 +22,5 @@ Finished.
 <h2>Credits</h2>
 
 Author: <a href="https://www.linkedin.com/in/emre-metilli-696018141/" target="_blank">Emre METİLLİ</a>
+
+App video: https://youtu.be/OwC98ojzfnY
