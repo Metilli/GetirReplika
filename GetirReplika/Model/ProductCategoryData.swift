@@ -40,6 +40,17 @@ class ProductCategoryData{
         }
     }
     
+    private var _selectedCategoryIndexRow = 0
+    public var selectedCategoryIndexRow: Int{
+        get {
+            return _selectedCategoryIndexRow
+        }
+        set{
+            _selectedCategoryIndexRow = newValue
+            delegate?.didCategoryChanged()
+        }
+    }
+    
     public var productCategories = [
         ProductCategoryModel(text: K.ProductCategories.newProductText, mainCategory: K.ProductCategories.newProductMainCategory, image: UIImage(named: K.ProductCategories.newProductImage)!, isSelected: false),
         ProductCategoryModel(text: K.ProductCategories.waterText, mainCategory: K.ProductCategories.waterMainCategory,image: UIImage(named: K.ProductCategories.waterImage)!, isSelected: false),

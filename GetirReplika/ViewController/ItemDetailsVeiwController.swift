@@ -75,35 +75,25 @@ class ItemDetailsVeiwController: UIViewController {
             nameLabel.text = safeItem.name
             unitLabel.text = safeItem.unit
         
-            fetchItemCartData()
-        }
-    }
-    func fetchItemCartData(){
-        let cartItem = ShoppingCartData.shared.currentCart.first { (ShoppingCartModel) -> Bool in
-            ShoppingCartModel.id == id
-        }
-        if let safeCartItem = cartItem{
-            count = safeCartItem.count
-        }else{
-            count = 0
+            count = ShoppingCartData.shared.fetchProductCount(id: id)
         }
     }
     
     @IBAction func addCartPressed(_ sender: Any) {
         ShoppingCartData.shared.addItemToCart(id: id)
-        fetchItemCartData()
+        count = ShoppingCartData.shared.fetchProductCount(id: id)
         ShoppingCartData.shared.delegate?.didShoppingCartDataUpdated()
     }
     
     @IBAction func minusPressed(_ sender: Any) {
         ShoppingCartData.shared.deleteItemFromCart(id: id)
-        fetchItemCartData()
+        count = ShoppingCartData.shared.fetchProductCount(id: id)
         ShoppingCartData.shared.delegate?.didShoppingCartDataUpdated()
     }
     
     @IBAction func plusPressed(_ sender: Any) {
         ShoppingCartData.shared.addItemToCart(id: id)
-        fetchItemCartData()
+        count = ShoppingCartData.shared.fetchProductCount(id: id)
         ShoppingCartData.shared.delegate?.didShoppingCartDataUpdated()
     }
     

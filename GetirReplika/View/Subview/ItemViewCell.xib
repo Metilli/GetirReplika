@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,12 +28,12 @@
                                     <constraint firstAttribute="height" constant="125" id="4Kd-xf-6BS"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2c-lP-HJZ" userLabel="PlusButton">
-                                <rect key="frame" x="90" y="10" width="20" height="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2c-lP-HJZ" userLabel="PlusButton">
+                                <rect key="frame" x="85" y="10" width="25" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="hG3-0t-pll"/>
-                                    <constraint firstAttribute="width" constant="20" id="lLi-XL-Zv1"/>
+                                    <constraint firstAttribute="height" constant="30" id="hG3-0t-pll"/>
+                                    <constraint firstAttribute="width" constant="25" id="lLi-XL-Zv1"/>
                                 </constraints>
                                 <state key="normal" title="+">
                                     <color key="titleColor" name="getirPurple"/>
@@ -49,7 +51,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRo-b8-y0h" userLabel="UnitLabel">
                                 <rect key="frame" x="10" y="167" width="26.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phv-M4-cYM" userLabel="NameLabel">
@@ -58,14 +60,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOm-Di-WGr" userLabel="MinusButton">
-                                <rect key="frame" x="90" y="50" width="20" height="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOm-Di-WGr" userLabel="MinusButton">
+                                <rect key="frame" x="85" y="65" width="25" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="cCx-Ht-UwT"/>
-                                    <constraint firstAttribute="width" constant="20" id="i6A-cf-Fps"/>
+                                    <constraint firstAttribute="height" constant="30" id="cCx-Ht-UwT"/>
+                                    <constraint firstAttribute="width" constant="25" id="i6A-cf-Fps"/>
                                 </constraints>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="tintColor" systemColor="darkTextColor"/>
                                 <state key="normal" title="-">
                                     <color key="titleColor" name="getirPurple"/>
                                 </state>
@@ -74,18 +76,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuv-n6-yEd" userLabel="CountLabel">
-                                <rect key="frame" x="90" y="30" width="20" height="20"/>
+                                <rect key="frame" x="85" y="40" width="25" height="25"/>
                                 <color key="backgroundColor" name="getirPurple"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="8kS-hG-GFr"/>
-                                    <constraint firstAttribute="height" constant="20" id="bSk-K8-ljf"/>
+                                    <constraint firstAttribute="width" constant="25" id="8kS-hG-GFr"/>
+                                    <constraint firstAttribute="height" constant="25" id="bSk-K8-ljf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="c2c-lP-HJZ" firstAttribute="top" secondItem="WWl-Zp-Dgg" secondAttribute="top" constant="10" id="3IN-zv-eqd"/>
                             <constraint firstItem="wuv-n6-yEd" firstAttribute="top" secondItem="c2c-lP-HJZ" secondAttribute="bottom" id="5bj-hX-Sld"/>
@@ -106,13 +108,13 @@
                     </view>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="WWl-Zp-Dgg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1Oz-CI-8x7"/>
                 <constraint firstItem="WWl-Zp-Dgg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="HDx-Xu-clL"/>
                 <constraint firstAttribute="bottom" secondItem="WWl-Zp-Dgg" secondAttribute="bottom" id="PZq-BC-tB2"/>
                 <constraint firstAttribute="trailing" secondItem="WWl-Zp-Dgg" secondAttribute="trailing" id="yIR-DW-0rz"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="131" height="136"/>
             <connections>
                 <outlet property="Image" destination="xPo-0w-QUl" id="Sy8-7p-NEI"/>
@@ -131,5 +133,14 @@
         <namedColor name="getirPurple">
             <color red="0.36100000143051147" green="0.23499999940395355" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

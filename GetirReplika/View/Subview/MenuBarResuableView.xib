@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,13 +25,13 @@
                     </collectionViewFlowLayout>
                 </collectionView>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
             <constraints>
                 <constraint firstItem="vhJ-sp-VG8" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="E8K-fR-AFe"/>
                 <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="vhJ-sp-VG8" secondAttribute="trailing" id="Qiz-za-LEd"/>
                 <constraint firstItem="vhJ-sp-VG8" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="RsS-1W-334"/>
                 <constraint firstAttribute="bottom" secondItem="vhJ-sp-VG8" secondAttribute="bottom" id="apO-Ax-DGf"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
             <connections>
                 <outlet property="menuBarCollectionView" destination="vhJ-sp-VG8" id="Xrm-LN-q1q"/>
             </connections>

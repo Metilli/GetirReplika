@@ -47,7 +47,7 @@ extension MenuBarResuableView: UICollectionViewDataSource {
         cell.text = productCategories[indexPath.item].text
         if productCategories[indexPath.item].isSelected{
             cell.indicatorView.alpha = 1
-            collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }else{
             cell.indicatorView.alpha = 0
         }

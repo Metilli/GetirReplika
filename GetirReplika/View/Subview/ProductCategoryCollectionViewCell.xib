@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCategoryResuableCell" id="gTV-IL-0wX" customClass="ProductCategoryCollectionViewCell" customModule="GetirReplika" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCategoryResuableCell" translatesAutoresizingMaskIntoConstraints="NO" id="gTV-IL-0wX" customClass="ProductCategoryCollectionViewCell" customModule="GetirReplika" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
-            <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -25,7 +24,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TYe-2N-8bW">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="65"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WaterCategory" translatesAutoresizingMaskIntoConstraints="NO" id="AVh-uz-n4V">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WaterCategory" translatesAutoresizingMaskIntoConstraints="NO" id="AVh-uz-n4V">
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="65"/>
                                             </imageView>
                                         </subviews>
@@ -58,13 +57,13 @@
                     </view>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="X29-Xf-Rwi" secondAttribute="bottom" id="Jbx-hP-obx"/>
                 <constraint firstAttribute="trailing" secondItem="X29-Xf-Rwi" secondAttribute="trailing" id="LwH-Gm-BX4"/>
                 <constraint firstItem="X29-Xf-Rwi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MjA-xt-SdT"/>
                 <constraint firstItem="X29-Xf-Rwi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pIZ-GA-TKV"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="141" height="230"/>
             <connections>
                 <outlet property="imageContainer" destination="TYe-2N-8bW" id="2Me-Kd-p6H"/>

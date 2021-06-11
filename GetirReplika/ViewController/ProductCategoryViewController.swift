@@ -12,6 +12,8 @@ import Kingfisher
 
 class ProductCategoryViewController: UIViewController {
     
+    static let shared = ProductCategoryViewController()
+
     @IBOutlet weak var menuBarCollectionView: UICollectionView!
     @IBOutlet weak var productItemsCollectionView: UICollectionView!
     
@@ -38,15 +40,16 @@ class ProductCategoryViewController: UIViewController {
         productItemsCollectionView.register(UINib(nibName: K.CollectionViewCell.productItemCellNib, bundle: nil), forCellWithReuseIdentifier: K.CollectionViewCell.productItemCellIdentifier)
         productItemsCollectionView.register(UINib(nibName: "ProductItemHeaderCell", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProductItemResuableCell")
         
-        title = "Ürünler"
-        
-        //navigationItem.backBarButtonItem?.title = ""
-        
-        //navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         setNavgationBarItems()
         
         loadProductCollectionView()
         
+        didShoppingCartDataUpdated()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        ShoppingCartData.shared.delegate = self
+        loadProductCollectionView()
         didShoppingCartDataUpdated()
     }
     
@@ -76,6 +79,8 @@ class ProductCategoryViewController: UIViewController {
     }
     
     func setNavgationBarItems(){
+        navigationItem.title = "Ürünler"
+        
         let shoppingCartButton = UIButton.init(type: .custom)
         shoppingCartButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         
@@ -108,7 +113,7 @@ class ProductCategoryViewController: UIViewController {
     }
     
     @objc func buttonPressed(){
-        print("Cart pressed")
+        performSegue(withIdentifier: K.Segue.shoppingCartSegue, sender: self)
     }
 }
 
@@ -140,18 +145,25 @@ extension ProductCategoryViewController: UICollectionViewDataSource {
         {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CollectionViewCell.productItemCellIdentifier, for: indexPath) as! ItemViewCell
             let url = URL(string: subcategoryProductsWithSection[indexPath.section][indexPath.row].image3xURL)
+            cell.indexPath = [indexPath]
             cell.id = subcategoryProductsWithSection[indexPath.section][indexPath.row].ID
             cell.image.kf.setImage(with: url!)
             cell.nameString = subcategoryProductsWithSection[indexPath.section][indexPath.row].name
             cell.priceString = subcategoryProductsWithSection[indexPath.section][indexPath.row].price
             cell.unitString = subcategoryProductsWithSection[indexPath.section][indexPath.row].unit
-            let shoppingCartItem = ShoppingCartData.shared.currentCart.first { (ShoppingCartModel) -> Bool in
-                return ShoppingCartModel.id == cell.id
-            }
-            if let safeShoppingCartItem = shoppingCartItem{
-                cell.productCount = safeShoppingCartItem.count
+            cell.productCount = ShoppingCartData.shared.fetchProductCount(id: cell.id)
+            if cell.productCount > 0{
+                if ShoppingCartData.shared.animatedCells[cell.id] == nil{
+                    cell.isAnimatedBefore = false
+                    ShoppingCartData.shared.animatedCells[cell.id] = indexPath
+                }else {
+                    cell.isAnimatedBefore = true
+                }
+                cell.addBorderAnimation()
             }else{
-                cell.productCount = 0
+                ShoppingCartData.shared.animatedCells.removeValue(forKey: cell.id)
+                cell.isAnimatedBefore = false
+                cell.removeBorderAnimation()
             }
             return cell
         }
@@ -204,7 +216,6 @@ extension ProductCategoryViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == productItemsCollectionView{
             let selectedCell = productItemsCollectionView.cellForItem(at: indexPath) as! ItemViewCell
-            print("Selected item is " + selectedCell.nameString)
             ProductData.shared.selectedItemID = selectedCell.id
             performSegue(withIdentifier: K.Segue.itemDetailViewSegue, sender: self)
         }
@@ -219,17 +230,19 @@ extension ProductCategoryViewController: CategoryDelegate{
 
 extension ProductCategoryViewController: ShoppingCartDataDelegate{
     func didShoppingCartDataUpdated() {
-        var totalCost = 0.0
-        for item in ShoppingCartData.shared.currentCart{
-            totalCost += Double(item.price)! * Double(item.count)
-        }
-        shoppingCartLabel.text = "₺ "+String(format: "%.2f",totalCost)
+        
+        let totalCost = ShoppingCartData.shared.getTotalCost()
+        
         if totalCost > 0 {
             shoppingCartView.isHidden = false
         }else{
             shoppingCartView.isHidden = true
         }
-        loadProductCollectionView()
+        
+        shoppingCartLabel.text = "₺ "+String(format: "%.2f",totalCost)
+        
+        //productItemsCollectionView.reloadData()
+        productItemsCollectionView.reloadItems(at: ShoppingCartData.shared.lastModifiedItemIndexPath)
     }
 }
 

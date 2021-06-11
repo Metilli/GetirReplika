@@ -13,6 +13,7 @@ class ProductCategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var myImage: UIImageView!
     @IBOutlet weak var imageContainer: UIView!
     @IBOutlet weak var myLabel: UILabel!
+    public var indexPathRow: Int = 0
     private var shadowLayer: CAShapeLayer!
     
     override func awakeFromNib() {

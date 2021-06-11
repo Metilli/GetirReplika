@@ -14,6 +14,7 @@ struct K {
     struct Segue {
         static let productSegue = "productCategoryViewSegue"
         static let itemDetailViewSegue = "itemDetailsViewSeugue"
+        static let shoppingCartSegue = "shoppingCartSegue"
     }
     
     struct Colors{
@@ -26,6 +27,8 @@ struct K {
         static let addressCellNib = "AddressCellTableViewCell"
         static let addressCellIdentifier = "AddressReusableCell"
         
+        static let shoppingCartItemNib = "ShoppingCartItemCell"
+        static let shoppingCartItemIdentifier = "ShoppingCartItemResuableCell"
     }
     
     struct CollectionViewCell {
