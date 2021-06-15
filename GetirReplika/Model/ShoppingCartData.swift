@@ -55,10 +55,10 @@ class ShoppingCartData {
         }else{
             
             let itemToAdd = ProductData.shared.allProducts.first { (ProductModel) -> Bool in
-                ProductModel.ID == id
+                ProductModel.id == id
             }
             if let safeItemToAdd = itemToAdd{
-                let shoppingCartItem = ShoppingCartModel(id: safeItemToAdd.ID, name: safeItemToAdd.name, price: safeItemToAdd.price, count: 1, image: safeItemToAdd.image3xURL)
+                let shoppingCartItem = ShoppingCartModel(id: safeItemToAdd.id, name: safeItemToAdd.name, price: safeItemToAdd.price, count: 1, image: safeItemToAdd.image3xURL)
                 ShoppingCartData.shared.currentCart.append(shoppingCartItem)
             }
         }

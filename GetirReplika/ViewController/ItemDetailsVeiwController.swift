@@ -19,6 +19,7 @@ class ItemDetailsVeiwController: UIViewController {
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var countStackView: UIStackView!
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
     
     private var id:String = ""
     
@@ -44,7 +45,7 @@ class ItemDetailsVeiwController: UIViewController {
         super.viewDidLoad()
         
         shapeButtons()
-        fetchItemData()
+        fetchItemData(ID: ProductData.shared.selectedItemID)
     }
     
     func shapeButtons(){
@@ -62,19 +63,22 @@ class ItemDetailsVeiwController: UIViewController {
         plusButton.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
     }
     
-    func fetchItemData(){
-        let allProducts = ProductData.shared.allProducts
-        let item = allProducts.first{ (ProductModel) -> Bool in
-            ProductModel.ID == ProductData.shared.selectedItemID
-        }
-        if let safeItem = item{
-            id = safeItem.ID
+    func fetchItemData(ID: String){
+        if let safeItem = ProductData.shared.fetchProductData(id: ID){
+            id = safeItem.id
             let url = URL(string: safeItem.image3xURL)
             productImage.kf.setImage(with: url!)
             priceLabel.text = "₺ " + safeItem.price
             nameLabel.text = safeItem.name
             unitLabel.text = safeItem.unit
-        
+            if safeItem.isFavorite{
+                favoriteButton.image = UIImage(systemName: K.SystemImages.heartFill)
+                favoriteButton.tintColor = UIColor(named: K.Colors.getirYellow)
+            }else{
+                favoriteButton.image = UIImage(systemName: K.SystemImages.heart)
+                favoriteButton.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            }
+            
             count = ShoppingCartData.shared.fetchProductCount(id: id)
         }
     }
@@ -97,14 +101,8 @@ class ItemDetailsVeiwController: UIViewController {
         ShoppingCartData.shared.delegate?.didShoppingCartDataUpdated()
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    @IBAction func favoritePressed(_ sender: Any) {
+        ProductData.shared.changeFavorite(id: id)
+        fetchItemData(ID: id)
+    }
 }

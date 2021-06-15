@@ -76,24 +76,24 @@ class DatabaseUploaderViewController: UIViewController {
     func createFirestoreDocuments(product: ProductModel){
         let db = Firestore.firestore()
         let data: [String: Any] = [
-            "ID": product.ID,
+            "ID": product.id,
             "mainCategory": product.mainCategory,
             "subCategory": product.subCategory,
             "name": product.name,
             "price": product.price,
             "priceDiscounted": product.priceDiscounted,
             "unit": product.unit,
-            "description": product.description,
+            "description": product.productDescription,
             "imageName": product.imageName,
             "image1xURL": product.image1xURL,
             "image2xURL": product.image2xURL,
             "image3xURL": product.image3xURL
         ]
-        db.collection("products").document(product.ID).setData(data){ err in
+        db.collection("products").document(product.id).setData(data){ err in
             if let err = err{
                 print(err)
             }else{
-                print("Document saved successfully written! ID: " + product.ID)
+                print("Document saved successfully written! ID: " + product.id)
             }
         }
     }
@@ -107,16 +107,16 @@ class DatabaseUploaderViewController: UIViewController {
             let lines = allText.split(separator: "\r\n")
             for line in lines {
                 ID += 1
-                let myProduct = ProductModel(ID: "", mainCategory: "", subCategory: "", name: "", price: "", priceDiscounted: "", unit: "", description: "", image1xURL: "", image2xURL: "", image3xURL: "",imageName: "")
+                let myProduct = ProductModel(ID: "", mainCategory: "", subCategory: "", name: "", price: "", priceDiscounted: "", unit: "", description: "", image1xURL: "", image2xURL: "", image3xURL: "",imageName: "",isFavorite: false)
                 let columns = line.split(separator: ",").map(String.init)
-                myProduct.ID = String(ID)
+                myProduct.id = String(ID)
                 myProduct.mainCategory = columns[0]
                 myProduct.subCategory = columns[1]
                 myProduct.name = columns[2]
                 myProduct.price = columns[3]
                 myProduct.priceDiscounted = columns[4]
                 myProduct.unit = columns[5]
-                myProduct.description = columns[6]
+                myProduct.productDescription = columns[6]
                 myProduct.imageName = columns[7]
                 productArray.append(myProduct)
             }

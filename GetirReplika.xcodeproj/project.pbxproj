@@ -36,6 +36,7 @@
 		04CF510A24E021580055F37A /* Cocon-RegularTR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04CF510924E021580055F37A /* Cocon-RegularTR.ttf */; };
 		04D0D1B82530C82B00131F90 /* ShoppingCartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D0D1B72530C82B00131F90 /* ShoppingCartData.swift */; };
 		04D0D1BA2530C89600131F90 /* ShoppingCartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D0D1B92530C89600131F90 /* ShoppingCartModel.swift */; };
+		04DF1CF42674B8F7008F9BDB /* ProductModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04DF1CF22674B8F7008F9BDB /* ProductModel.xcdatamodeld */; };
 		04E9CB2D24E8A7550074D687 /* ProductCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E9CB2C24E8A7550074D687 /* ProductCategoryViewController.swift */; };
 		04E9CB3024E8AEC50074D687 /* MenuBarResuableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E9CB2E24E8AEC50074D687 /* MenuBarResuableView.swift */; };
 		04E9CB3124E8AEC50074D687 /* MenuBarResuableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E9CB2F24E8AEC50074D687 /* MenuBarResuableView.xib */; };
@@ -82,6 +83,7 @@
 		04CF510924E021580055F37A /* Cocon-RegularTR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cocon-RegularTR.ttf"; sourceTree = "<group>"; };
 		04D0D1B72530C82B00131F90 /* ShoppingCartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartData.swift; sourceTree = "<group>"; };
 		04D0D1B92530C89600131F90 /* ShoppingCartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartModel.swift; sourceTree = "<group>"; };
+		04DF1CF32674B8F7008F9BDB /* ProductModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProductModel.xcdatamodel; sourceTree = "<group>"; };
 		04E9CB2C24E8A7550074D687 /* ProductCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryViewController.swift; sourceTree = "<group>"; };
 		04E9CB2E24E8AEC50074D687 /* MenuBarResuableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarResuableView.swift; sourceTree = "<group>"; };
 		04E9CB2F24E8AEC50074D687 /* MenuBarResuableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuBarResuableView.xib; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				04F984F8253365BA006D69BE /* ProductData.swift */,
 				04D0D1B72530C82B00131F90 /* ShoppingCartData.swift */,
 				04D0D1B92530C89600131F90 /* ShoppingCartModel.swift */,
+				04DF1CF22674B8F7008F9BDB /* ProductModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				04C97BF124F6954D00E39D05 /* DatabaseUploaderViewController.swift in Sources */,
 				04ED285224DF05D30077EC0B /* ProductCategoryCollectionViewCell.swift in Sources */,
 				04ED282C24DED53F0077EC0B /* AddressCellTableViewCell.swift in Sources */,
+				04DF1CF42674B8F7008F9BDB /* ProductModel.xcdatamodeld in Sources */,
 				04C5CC8D24DD5FFB0071CF42 /* SceneDelegate.swift in Sources */,
 				04D0D1B82530C82B00131F90 /* ShoppingCartData.swift in Sources */,
 				0474877A24E605E80034D6A4 /* MapCollectionViewCell.swift in Sources */,
@@ -586,6 +590,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		04DF1CF22674B8F7008F9BDB /* ProductModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				04DF1CF32674B8F7008F9BDB /* ProductModel.xcdatamodel */,
+			);
+			currentVersion = 04DF1CF32674B8F7008F9BDB /* ProductModel.xcdatamodel */;
+			path = ProductModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 04C5CC7F24DD5FFB0071CF42 /* Project object */;
 }

@@ -24,6 +24,40 @@ class ProductData {
         }
     }
     
+    func changeFavorite(id: String){
+        let allProducts = ProductData.shared.allProducts
+        let item = allProducts.first{ (ProductModel) -> Bool in
+            ProductModel.id == id
+        }
+        if let safeItem = item{
+            safeItem.isFavorite = !safeItem.isFavorite
+        }
+    }
+    
+    func fetchProductData(id: String) -> ProductModel?{
+      let allProducts = ProductData.shared.allProducts
+        let item = allProducts.first{ (ProductModel) -> Bool in
+            ProductModel.id == id}
+    
+        if let safeItem = item{
+            return safeItem
+        }
+        else {
+            return nil
+        }
+    }
+    
+    func fetchProductisFavorite(id:String) -> Bool{
+        var isFavorite = false
+        let item = ProductData.shared.allProducts.first { (ProductModel) -> Bool in
+            ProductModel.id == id
+        }
+        if let safeItem = item{
+            isFavorite = safeItem.isFavorite
+        }
+        return isFavorite
+    }
+    
     func loadItemsFromDatabase(){
         let db = Firestore.firestore()
         db.collection("products").getDocuments() { (querySnapshot, err) in
@@ -42,7 +76,8 @@ class ProductData {
                                           image1xURL: document.data()["image1xURL"] as? String,
                                           image2xURL: document.data()["image2xURL"] as? String,
                                           image3xURL: document.data()["image3xURL"] as? String,
-                                          imageName: document.data()["mainCategory"] as! String)
+                                          imageName: document.data()["mainCategory"] as! String,
+                                          isFavorite: false)
                     self.allProducts.append(product)
                 }
             }

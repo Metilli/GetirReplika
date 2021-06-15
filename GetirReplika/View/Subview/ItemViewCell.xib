@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -22,6 +21,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWl-Zp-Dgg">
                         <rect key="frame" x="0.0" y="0.0" width="120" height="250"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vzb-Ee-1dn" userLabel="favorite">
+                                <rect key="frame" x="10" y="19.5" width="15" height="12.5"/>
+                                <color key="tintColor" name="getirYellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="agA-Il-c0l"/>
+                                    <constraint firstAttribute="width" constant="15" id="cRE-Ci-46G"/>
+                                </constraints>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AkminaMadenSuyu" translatesAutoresizingMaskIntoConstraints="NO" id="xPo-0w-QUl" userLabel="Image">
                                 <rect key="frame" x="5" y="10" width="105" height="125"/>
                                 <constraints>
@@ -92,6 +99,8 @@
                             <constraint firstItem="c2c-lP-HJZ" firstAttribute="top" secondItem="WWl-Zp-Dgg" secondAttribute="top" constant="10" id="3IN-zv-eqd"/>
                             <constraint firstItem="wuv-n6-yEd" firstAttribute="top" secondItem="c2c-lP-HJZ" secondAttribute="bottom" id="5bj-hX-Sld"/>
                             <constraint firstItem="Phv-M4-cYM" firstAttribute="leading" secondItem="WWl-Zp-Dgg" secondAttribute="leading" constant="10" id="9I7-No-sYx"/>
+                            <constraint firstItem="vzb-Ee-1dn" firstAttribute="leading" secondItem="WWl-Zp-Dgg" secondAttribute="leading" constant="10" id="9vY-cT-OLW"/>
+                            <constraint firstItem="vzb-Ee-1dn" firstAttribute="top" secondItem="WWl-Zp-Dgg" secondAttribute="top" constant="18" id="DF9-MP-n0w"/>
                             <constraint firstAttribute="trailing" secondItem="wuv-n6-yEd" secondAttribute="trailing" constant="10" id="Eee-ox-gv6"/>
                             <constraint firstItem="mpd-xi-scP" firstAttribute="leading" secondItem="WWl-Zp-Dgg" secondAttribute="leading" constant="10" id="V24-45-2H8"/>
                             <constraint firstItem="CRo-b8-y0h" firstAttribute="top" secondItem="Phv-M4-cYM" secondAttribute="bottom" constant="2" id="Wi9-yl-WXj"/>
@@ -118,6 +127,7 @@
             <size key="customSize" width="131" height="136"/>
             <connections>
                 <outlet property="Image" destination="xPo-0w-QUl" id="Sy8-7p-NEI"/>
+                <outlet property="favoriteImage" destination="vzb-Ee-1dn" id="eQf-4O-oqu"/>
                 <outlet property="minusButton" destination="mOm-Di-WGr" id="Dkl-ll-wvr"/>
                 <outlet property="nameLabel" destination="Phv-M4-cYM" id="AAa-N3-6Wf"/>
                 <outlet property="plusButton" destination="c2c-lP-HJZ" id="Z6f-2T-F77"/>
@@ -130,8 +140,12 @@
     </objects>
     <resources>
         <image name="AkminaMadenSuyu" width="108.5" height="235"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <namedColor name="getirPurple">
             <color red="0.36100000143051147" green="0.23499999940395355" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="getirYellow">
+            <color red="0.99599999189376831" green="0.82400000095367432" blue="0.0" alpha="0.9869999885559082" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

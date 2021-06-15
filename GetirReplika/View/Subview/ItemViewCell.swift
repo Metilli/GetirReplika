@@ -17,6 +17,7 @@ class ItemViewCell: UICollectionViewCell {
     @IBOutlet private weak var unitLabel: UILabel!
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var productCountLabel: UILabel!
+    @IBOutlet weak var favoriteImage: UIImageView!
     
     private var strokeLayer = CAShapeLayer()
     public var isAnimatedBefore = false

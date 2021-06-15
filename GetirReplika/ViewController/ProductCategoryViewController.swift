@@ -146,12 +146,13 @@ extension ProductCategoryViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CollectionViewCell.productItemCellIdentifier, for: indexPath) as! ItemViewCell
             let url = URL(string: subcategoryProductsWithSection[indexPath.section][indexPath.row].image3xURL)
             cell.indexPath = [indexPath]
-            cell.id = subcategoryProductsWithSection[indexPath.section][indexPath.row].ID
+            cell.id = subcategoryProductsWithSection[indexPath.section][indexPath.row].id
             cell.image.kf.setImage(with: url!)
             cell.nameString = subcategoryProductsWithSection[indexPath.section][indexPath.row].name
             cell.priceString = subcategoryProductsWithSection[indexPath.section][indexPath.row].price
             cell.unitString = subcategoryProductsWithSection[indexPath.section][indexPath.row].unit
             cell.productCount = ShoppingCartData.shared.fetchProductCount(id: cell.id)
+            cell.favoriteImage.isHidden = !ProductData.shared.fetchProductisFavorite(id: cell.id)
             if cell.productCount > 0{
                 if ShoppingCartData.shared.animatedCells[cell.id] == nil{
                     cell.isAnimatedBefore = false

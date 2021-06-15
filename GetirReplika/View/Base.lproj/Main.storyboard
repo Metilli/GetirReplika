@@ -428,12 +428,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ürün Detayı" id="kNZ-Jy-0Wx">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart.fill" catalog="system" id="1A1-ab-0hk"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart" catalog="system" id="1A1-ab-0hk" userLabel="FavoriteButton">
+                            <connections>
+                                <action selector="favoritePressed:" destination="niu-QF-VyI" id="0UN-rX-p3d"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addCartButton" destination="EFO-iE-05b" id="cqs-4R-TSD"/>
                         <outlet property="countLabel" destination="CjB-U9-23n" id="Ox2-Wu-jiI"/>
                         <outlet property="countStackView" destination="feO-ls-8KJ" id="rwn-qh-UCJ"/>
+                        <outlet property="favoriteButton" destination="1A1-ab-0hk" id="gaD-Ca-Hay"/>
                         <outlet property="minusButton" destination="4AX-FK-iSX" id="rKp-Vq-MeL"/>
                         <outlet property="nameLabel" destination="e08-53-3O0" id="ob7-AU-qjV"/>
                         <outlet property="plusButton" destination="BgI-RH-NA0" id="Xua-34-3H2"/>
@@ -552,7 +557,7 @@
         <!--getir-->
         <scene sceneID="LGN-fE-gyV">
             <objects>
-                <viewController id="Nkd-HY-WVx" customClass="SearchViewController" customModule="GetirReplika" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Nkd-HY-WVx" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hyg-t0-aEj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -619,7 +624,7 @@
         <!--getir-->
         <scene sceneID="8r1-dO-Eay">
             <objects>
-                <viewController id="48d-3u-cPg" customClass="AccountViewController" customModule="GetirReplika" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="48d-3u-cPg" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hgq-nA-I6g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -686,7 +691,7 @@
         <!--getir-->
         <scene sceneID="Fpi-ci-bdo">
             <objects>
-                <viewController id="8d5-Fx-pUX" customClass="PromotionViewController" customModule="GetirReplika" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8d5-Fx-pUX" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8UR-WI-2OT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -738,7 +743,7 @@
     <resources>
         <image name="NestleWater" width="237" height="129"/>
         <image name="gift.fill" catalog="system" width="128" height="124"/>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

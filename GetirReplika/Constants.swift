@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 
 struct K {
+    struct SystemImages {
+        static let heart = "heart"
+        static let heartFill = "heart.fill"
+    }
     
     struct Segue {
         static let productSegue = "productCategoryViewSegue"
