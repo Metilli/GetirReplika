@@ -5,7 +5,7 @@ This application is duplicate of Getir market.
 
 <h2>Goal</h2>
 
-This projects purpose are learning UIKit components (UIView, UICollectionView, UITableView, xibs), MVVM design pattern and firebase firestore.
+This projects purpose are learning UIKit components (UIView, UICollectionView, UITableView, xibs), MVVM design pattern, firebase firestore and CoreData.
 
 <h2>Key learnings</h2>
 
@@ -14,6 +14,7 @@ This projects purpose are learning UIKit components (UIView, UICollectionView, U
 - Delegate pattern
 - Firebase firestore
 - Kingfisher
+- CoreData
 
 <h2>Project status</h2>
 
