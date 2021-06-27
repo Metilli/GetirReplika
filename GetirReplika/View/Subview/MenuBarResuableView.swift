@@ -21,6 +21,8 @@ class MenuBarResuableView: UICollectionReusableView {
         menuBarCollectionView.dataSource = self
         menuBarCollectionView.delegate = self
         menuBarCollectionView.register(UINib(nibName: "MenuItemViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        
+        menuBarCollectionView.scrollToItem(at: [0,ProductCategoryData.shared.selectedCategoryIndexRow], at: .centeredHorizontally, animated: false)
     }
     
     func getWidthOfString(text: String, font: UIFont) -> CGFloat{
@@ -47,7 +49,6 @@ extension MenuBarResuableView: UICollectionViewDataSource {
         cell.text = productCategories[indexPath.item].text
         if productCategories[indexPath.item].isSelected{
             cell.indicatorView.alpha = 1
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }else{
             cell.indicatorView.alpha = 0
         }

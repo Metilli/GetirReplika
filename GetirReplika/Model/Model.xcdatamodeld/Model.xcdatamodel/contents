@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FavoriteProduct" representedClassName=".FavoriteProduct" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="isFavorite" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="ShoppingCartProduct" representedClassName=".ShoppingCartProduct" syncable="YES" codeGenerationType="class">
+        <attribute name="count" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="FavoriteProduct" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="ShoppingCartProduct" positionX="-63" positionY="0" width="128" height="73"/>
+    </elements>
+</model>

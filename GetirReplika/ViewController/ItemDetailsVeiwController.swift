@@ -71,7 +71,8 @@ class ItemDetailsVeiwController: UIViewController {
             priceLabel.text = "₺ " + safeItem.price
             nameLabel.text = safeItem.name
             unitLabel.text = safeItem.unit
-            if safeItem.isFavorite{
+            let isFavorite = ProductData.shared.fetchProductisFavorite(id: ID)
+            if isFavorite{
                 favoriteButton.image = UIImage(systemName: K.SystemImages.heartFill)
                 favoriteButton.tintColor = UIColor(named: K.Colors.getirYellow)
             }else{
@@ -86,19 +87,16 @@ class ItemDetailsVeiwController: UIViewController {
     @IBAction func addCartPressed(_ sender: Any) {
         ShoppingCartData.shared.addItemToCart(id: id)
         count = ShoppingCartData.shared.fetchProductCount(id: id)
-        ShoppingCartData.shared.delegate?.didShoppingCartDataUpdated()
     }
     
     @IBAction func minusPressed(_ sender: Any) {
         ShoppingCartData.shared.deleteItemFromCart(id: id)
         count = ShoppingCartData.shared.fetchProductCount(id: id)
-        ShoppingCartData.shared.delegate?.didShoppingCartDataUpdated()
     }
     
     @IBAction func plusPressed(_ sender: Any) {
         ShoppingCartData.shared.addItemToCart(id: id)
         count = ShoppingCartData.shared.fetchProductCount(id: id)
-        ShoppingCartData.shared.delegate?.didShoppingCartDataUpdated()
     }
     
     @IBAction func favoritePressed(_ sender: Any) {

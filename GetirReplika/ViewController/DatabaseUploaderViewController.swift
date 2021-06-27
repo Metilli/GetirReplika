@@ -107,7 +107,7 @@ class DatabaseUploaderViewController: UIViewController {
             let lines = allText.split(separator: "\r\n")
             for line in lines {
                 ID += 1
-                let myProduct = ProductModel(ID: "", mainCategory: "", subCategory: "", name: "", price: "", priceDiscounted: "", unit: "", description: "", image1xURL: "", image2xURL: "", image3xURL: "",imageName: "",isFavorite: false)
+                let myProduct = ProductModel(ID: "", mainCategory: "", subCategory: "", name: "", price: "", priceDiscounted: "", unit: "", description: "", image1xURL: "", image2xURL: "", image3xURL: "",imageName: "")
                 let columns = line.split(separator: ",").map(String.init)
                 myProduct.id = String(ID)
                 myProduct.mainCategory = columns[0]

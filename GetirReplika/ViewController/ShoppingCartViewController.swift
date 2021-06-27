@@ -58,11 +58,13 @@ extension ShoppingCartViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableViewCell.shoppingCartItemIdentifier, for: indexPath) as! ShoppingCartItemCell
-        cell.productId = ShoppingCartData.shared.currentCart[indexPath.item].id
-        cell.productName = ShoppingCartData.shared.currentCart[indexPath.item].name
-        cell.productPrice = ShoppingCartData.shared.currentCart[indexPath.item].price
-        cell.productCount = ShoppingCartData.shared.currentCart[indexPath.item].count
-        cell.productImage = ShoppingCartData.shared.currentCart[indexPath.item].image
+        if let product = ProductData.shared.fetchProductData(id: ShoppingCartData.shared.currentCart[indexPath.item].id!){
+            cell.productId = product.id
+            cell.productName = product.name
+            cell.productPrice = product.price
+            cell.productCount = Int(ShoppingCartData.shared.currentCart[indexPath.item].count)
+            cell.productImage = product.image3xURL
+        }
         return cell
     }
     

@@ -21,9 +21,8 @@ class ProductModel {
     var image2xURL: String
     var image3xURL: String
     var imageName: String
-    var isFavorite: Bool = false
     
-    init(ID: String, mainCategory: String, subCategory: String, name: String, price: String, priceDiscounted: String?, unit: String, description: String?, image1xURL: String?, image2xURL: String?, image3xURL: String?, imageName: String, isFavorite: Bool?) {
+    init(ID: String, mainCategory: String, subCategory: String, name: String, price: String, priceDiscounted: String?, unit: String, description: String?, image1xURL: String?, image2xURL: String?, image3xURL: String?, imageName: String) {
         self.mainCategory = mainCategory
         self.subCategory = subCategory
         self.name = name
@@ -36,6 +35,5 @@ class ProductModel {
         self.image3xURL = image3xURL ?? ""
         self.id = ID
         self.imageName = imageName
-        self.isFavorite = isFavorite ?? false
     }
 }

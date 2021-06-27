@@ -175,7 +175,9 @@ extension ProductCategoryViewController: UICollectionViewDataSource {
             switch kind
             {
             case UICollectionView.elementKindSectionHeader:
-                let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: K.CollectionViewCell.menuBarCellIdentifier, for: indexPath)
+                let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: K.CollectionViewCell.menuBarCellIdentifier, for: indexPath) as! MenuBarResuableView
+                
+                headerView.menuBarCollectionView.scrollToItem(at: [0,ProductCategoryData.shared.selectedCategoryIndexRow], at: .left, animated: true)
                 return headerView
             default:
                 fatalError()
@@ -243,7 +245,11 @@ extension ProductCategoryViewController: ShoppingCartDataDelegate{
         shoppingCartLabel.text = "₺ "+String(format: "%.2f",totalCost)
         
         //productItemsCollectionView.reloadData()
-        productItemsCollectionView.reloadItems(at: ShoppingCartData.shared.lastModifiedItemIndexPath)
+        if ShoppingCartData.shared.lastModifiedItemIndexPath.count > 0{
+            if let _ = productItemsCollectionView.cellForItem(at: ShoppingCartData.shared.lastModifiedItemIndexPath[0]){
+                productItemsCollectionView.reloadItems(at: ShoppingCartData.shared.lastModifiedItemIndexPath)
+            }
+        }
     }
 }
 
