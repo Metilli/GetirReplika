@@ -1,7 +1,9 @@
 <h2>About</h2>
 
 This is my second project using swift.
-This application is duplicate of Getir market.
+This application is duplicate of Getir market. 
+
+All subcategories and items in market are dynamically fill from firestore.
 
 <h2>Goal</h2>
 
